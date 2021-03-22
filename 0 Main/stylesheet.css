@@ -30,6 +30,12 @@ header nav ul li:hover {
 header p {
     text-align: center;
 }
+header a {
+    text-decoration: none;
+}
+header a:hover {
+    text-decoration: underline;
+}
 body {
     font-family: "Bahnschrift";
     font-size: 5;
@@ -68,12 +74,35 @@ body p {
     width: 180px;
     word-spacing: 0;
     border-radius: 10px;
-}
-.aufgaben a:hover {
-    color: red;
-    border: 2px solid red;
+    transition: all 250ms ease;
 }
 .aufgaben a.active:hover {
     color: white;
     border: 2px solid white;
+    animation: inherit;
+}
+.aufgaben a:hover {
+    color: red;
+    border: 2px solid red;
+    animation: swiggle 250ms forwards ease;
+}
+@keyframes swiggle{
+    0% {
+        transform: translate(0, 0);
+    }
+    15% {
+        transform: translate(1rem, 0);
+    }
+    35% {
+        transform: translate(-1rem, 0);
+    }
+    55% {
+        transform: translate(1rem, 0);
+    }
+    80% {
+        transform: translate(-1rem, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
 }
