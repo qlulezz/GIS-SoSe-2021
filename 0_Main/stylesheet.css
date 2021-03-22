@@ -1,4 +1,5 @@
 header nav a {
+    display: block;
     color: inherit;
 }
 header nav ul {
@@ -75,10 +76,4 @@ body p {
 .aufgaben a.active:hover {
     color: white;
     border: 2px solid white;
-}
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
 }

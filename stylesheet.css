@@ -29,6 +29,7 @@ header p {
 }
 
 header nav a {
+    display: block;
     color: inherit;
 }
 
@@ -46,10 +47,39 @@ body h1 {
 body p {
     line-height: 5px;
 }
-
-.center {
-    display: block;
+.page {
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+}
+.page a {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    display: block;
+    width: 180px;
+    padding: 5px;
+    border: 2px solid black;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    word-spacing: 0;
+    border-radius: 10px;
+    transition: all 250ms ease;
+    position: relative;
+}
+.page a:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    text-decoration: underline;
+    width: 180px;
+    word-spacing: 0;
+    border-radius: 10px;
+    box-shadow: 0 1rem 3.8rem rgba(255,255,255,255), 0 0 1.2rem rgba(255,255,255,255);
+    transform: translate(0, -0.3rem);
+}
+.page a.active:hover {
+    color: white;
+    border: 2px solid white;
 }
