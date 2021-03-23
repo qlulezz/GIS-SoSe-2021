@@ -77,11 +77,13 @@ body p {
     transition: all 250ms ease;
 }
 .aufgaben a.active:hover {
+    cursor: pointer;
     color: white;
     border: 2px solid white;
     animation: inherit;
 }
 .aufgaben a:hover {
+    cursor: default;
     color: red;
     border: 2px solid red;
     animation: swiggle 250ms forwards ease;
