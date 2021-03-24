@@ -6,7 +6,7 @@ html {
 
 header {
     position: absolute;
-    height: 350%;
+    height: 290%;
     top: 0;
     right: 0;
 }
@@ -67,6 +67,7 @@ body p {
 
 a {
     text-decoration: none;
+    color: #26ED90;
 }
 
 a:hover {
@@ -75,6 +76,7 @@ a:hover {
 
 img {
     border: 2px white solid;
+    box-shadow: black 0px 0px 50px;
 }
 
 nav {
@@ -89,5 +91,10 @@ nav {
 }
 
 nav .current {
-    color: red;
+    color: #26ED90;
+}
+
+.disc img {
+    margin-bottom: 30px;
+    border: 2px black solid;
 }
