@@ -1,35 +1,43 @@
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body header nav {
+    position: sticky;
+    top: 0;
+}
+
 header nav a {
     color: inherit;
 }
 
 header nav ul {
-    text-align: center;
+    float: right;
     list-style: none;
-    padding: 0;
+    padding: 5px;
     font-family: sans-serif;
     font-weight: bold;
-    word-spacing: 1em;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: max-content;
+    position: sticky;
+    top: 0;
 }
 
 header nav ul li {
     color: white;
     text-align: center;
-    display: inline-block;
+    display: inline;
     width: 180px;
     padding: 5px;
-    border: 2px solid white;
-    margin-bottom: 10px;
-    word-spacing: 0;
-    border-radius: 10px;
 }
 
 header nav ul li:hover {
+    border-radius: 5px;
     background-color: white;
     color: black;
-}
-
-header p {
-    text-align: center;
 }
 
 header a {
@@ -54,11 +62,6 @@ body p {
     line-height: 5px;
 }
 
-body nav {
-    position: sticky;
-    top: 0;
-}
-
 a {
     text-decoration: none;
 }
@@ -80,4 +83,8 @@ nav {
     width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+
+nav .current {
+    color: red;
 }
