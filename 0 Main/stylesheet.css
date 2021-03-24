@@ -2,6 +2,7 @@ header nav a {
     display: block;
     color: inherit;
 }
+
 header nav ul {
     text-align: center;
     list-style: none;
@@ -27,15 +28,19 @@ header nav ul li:hover {
     background-color: white;
     color: black;
 }
+
 header p {
     text-align: center;
 }
+
 header a {
     text-decoration: none;
 }
+
 header a:hover {
     text-decoration: underline;
 }
+
 body {
     font-family: "Bahnschrift";
     font-size: 5;
@@ -43,9 +48,11 @@ body {
     background-color: black;
     text-align: center;
 }
+
 body p {
     line-height: 5px;
 }
+
 .aufgaben {
     text-align: center;
     width: 210px;
@@ -53,6 +60,7 @@ body p {
     margin-left: auto;
     margin-right: auto;
 }
+
 .aufgaben a {
     background-color: gray;
     color: black;
@@ -67,7 +75,8 @@ body p {
     word-spacing: 0;
     border-radius: 10px;
 }
-.aufgaben a.active{
+
+.aufgaben a.active {
     background-color: dodgerblue;
     color: blue;
     text-decoration: underline;
@@ -76,19 +85,22 @@ body p {
     border-radius: 10px;
     transition: all 250ms ease;
 }
+
 .aufgaben a.active:hover {
     cursor: pointer;
     color: white;
     border: 2px solid white;
     animation: inherit;
 }
+
 .aufgaben a:hover {
     cursor: default;
     color: red;
     border: 2px solid red;
     animation: swiggle 250ms forwards ease;
 }
-@keyframes swiggle{
+
+@keyframes swiggle {
     0% {
         transform: translate(0, 0);
     }
