@@ -4,9 +4,15 @@ html {
     scroll-behavior: smooth;
 }
 
-body header nav {
-    position: sticky;
+header {
+    position: absolute;
+    height: 350%;
     top: 0;
+    right: 0;
+}
+
+header nav {
+    position: sticky;
 }
 
 header nav a {
@@ -14,7 +20,6 @@ header nav a {
 }
 
 header nav ul {
-    float: right;
     list-style: none;
     padding: 5px;
     font-family: sans-serif;
@@ -22,8 +27,6 @@ header nav ul {
     border: 2px solid white;
     border-radius: 10px;
     width: max-content;
-    position: sticky;
-    top: 0;
 }
 
 header nav ul li {
