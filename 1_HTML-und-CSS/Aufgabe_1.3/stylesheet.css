@@ -63,7 +63,7 @@ body {
 }
 
 body p {
-    line-height: 5px;
+    line-height: 17px;
 }
 
 a {
@@ -101,4 +101,97 @@ nav .current {
 
 .disc img {
     margin-bottom: 30px;
+}
+
+.box {
+    width: 90%;
+    padding: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    background-color: black;
+    text-align: center;
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.box input[type="text"],
+.box input[type="email"] {
+    font-family: sans-serif;
+    color: white;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid white;
+    padding: 10px 10px;
+    width: 300px;
+    outline: none;
+    border-radius: 10px;
+    transition: 250ms;
+}
+
+.box input[type="text"]:focus,
+.box input[type="email"]:focus {
+    padding: 10px 14px;
+    border: 2px solid #26ED90;
+}
+
+.box textarea {
+    font-family: sans-serif;
+    color: white;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid white;
+    padding: 10px;
+    width: 200px;
+    outline: none;
+    border-radius: 10px;
+    transition: 250ms;
+    height: 200px;
+    width: 600px;
+    resize: none;
+}
+
+.box textarea:focus {
+    border: 2px solid #26ED90;
+    width: 610px;
+}
+
+.box input[type="submit"] {
+    color: white;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #26ED90;
+    padding: 10px 40px;
+    outline: none;
+    border-radius: 10px;
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.box input[type="submit"]:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    text-decoration: underline;
+}
+
+.box p {
+    font-size: x-small;
+}
+
+.box a {
+    text-decoration: underline;
+}
+
+.dtschtz {
+    text-align: left;
 }
