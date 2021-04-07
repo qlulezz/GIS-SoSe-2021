@@ -76,6 +76,7 @@ a:hover {
 }
 
 img {
+    width: 800px;
     box-shadow: #030303 0px 0px 50px;
 }
 
@@ -101,14 +102,12 @@ nav .current {
 
 .disc img {
     margin-bottom: 30px;
+    width: 600px;
 }
 
 .box {
-    width: 90%;
+    width: 80%;
     padding: 40px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 10%);
     background-color: black;
     text-align: center;
 }
