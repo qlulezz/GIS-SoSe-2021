@@ -11,31 +11,42 @@
 
 <body>
     <header>
-        <nav>
-            <ul>
+        <nav class="stickynav">
+            <ul class="round">
                 <li><a href="./PA_1-3.html">Portfolio</a></li>
                 <li><a href="./PA_1-3_About.html">About</a></li>
                 <li><a class="current" href="./PA_1-3_Kontakt.html">Kontakt</a></li>
             </ul>
+            <div class="line"></div>
+            <ul class="icons">
+                <li>
+                    <a href="https://instagram.com/hxnryc" target="_blank"><img src="./Icons/instagram-brands.svg" alt="Instagram"></a>
+                </li>
+                <li>
+                    <a href="https://twitch.tv/qlulezz" target="_blank"><img src="./Icons/twitch-brands.svg" alt="Twitch"></a>
+                </li>
+                <li>
+                    <a href="https://steamcommunity.com/id/qlulezz/" target="_blank"><img src="./Icons/steam-brands.svg" alt="Steam"></a>
+                </li>
+            </ul>
         </nav>
     </header>
     <main>
-        <h1>Aufgabe 1.3</h1>
+        <h1 id="start">Portfolio - Henry C.</h1>
         <h2>Kontakt</h2>
         <div class="disc">
-            <img src="../Aufgabe_1.2/q_Discord.gif" alt="Discord Gif">
+            <img class="round" src="../Aufgabe_1.2/q_Discord.gif" alt="Discord Gif">
         </div>
         <h2>Discord: qlulezz#2946</h2>
         <h2>Twitch: <a href="https://twitch.tv/qlulezz">twitch.tv/qlulezz</a></h2>
         <h2>Instagram: <a href="https://www.instagram.com/hxnryc/">@hxnryc</a></h2>
-
-        <form class="box" action="PA_1-3_Kontakt.html" method="post">
+        <form class="box round">
             <h1>Kontakt</h1>
-            <input type="text" id="Name" placeholder="Name">
-            <input type="email" id="Email" placeholder="E-Mail">
-            <textarea placeholder="Nachricht"></textarea>
+            <input type="text" class="round" id="Name" placeholder="Name">
+            <input type="email" class="round" id="Email" placeholder="E-Mail">
+            <textarea class="round" placeholder="Nachricht"></textarea>
             <p>Mit Absenden der Nachricht bestätige ich den <a href="./Datenschutzerklaerung.html" target="_blank">Datenschutz</a>.</p>
-            <input type="submit" id="submit" value="Absenden">
+            <input class="round" type="submit" id="submit" value="Absenden">
         </form>
     </main>
     <footer>

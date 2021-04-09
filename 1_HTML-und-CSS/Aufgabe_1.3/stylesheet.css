@@ -6,42 +6,61 @@ html {
 
 header {
     position: sticky;
-    height: 290%;
     top: 0;
     z-index: 1000;
 }
 
-header nav {
+.stickynav {
     position: absolute;
     right: 0;
 }
 
-header nav a {
+.stickynav a {
     color: inherit;
 }
 
-header nav ul {
+.stickynav ul {
+    margin: 15px 0 0 0;
     list-style: none;
     padding: 5px;
     font-family: sans-serif;
     font-weight: bold;
-    border: 2px solid white;
-    border-radius: 10px;
-    width: max-content;
 }
 
-header nav ul li {
+.stickynav .icons {
+    border: none;
+    margin: auto;
+    list-style: none;
+}
+
+.stickynav .icons li:hover {
+    background-color: inherit;
+}
+
+.stickynav ul li {
     color: white;
     text-align: center;
     display: inline;
-    width: 180px;
     padding: 5px;
 }
 
-header nav ul li:hover {
+.stickynav ul li:hover {
     border-radius: 5px;
     background-color: white;
     color: black;
+}
+
+.icons li img {
+    filter: invert();
+    box-shadow: none;
+    width: 30px;
+    padding: 5px;
+}
+
+.icons li img:hover {
+    background-color: white;
+    filter: none;
+    border-radius: 10px;
 }
 
 header a {
@@ -49,7 +68,7 @@ header a {
 }
 
 header a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 body {
@@ -77,23 +96,16 @@ a:hover {
 
 img {
     width: 800px;
-    box-shadow: #030303 0px 0px 50px;
+    box-shadow: #030303 0 0 50px;
+}
+
+.round {
+    border-radius: 10px;
 }
 
 video {
     width: 800px;
-    box-shadow: #030303 0px 0px 50px;
-}
-
-nav {
-    position: sticky;
-    top: 0;
-}
-
-.instafeed {
-    width: 960px;
-    margin-left: auto;
-    margin-right: auto;
+    box-shadow: #030303 0 0 50px;
 }
 
 nav .current {
@@ -101,11 +113,18 @@ nav .current {
 }
 
 .disc img {
-    margin-bottom: 30px;
     width: 600px;
 }
 
+.line {
+    margin: 5px auto;
+    background-color: white;
+    width: 90%;
+    height: 2px;
+}
+
 .box {
+    margin: auto;
     width: 80%;
     padding: 40px;
     background-color: black;
@@ -130,7 +149,6 @@ nav .current {
     padding: 10px 10px;
     width: 300px;
     outline: none;
-    border-radius: 10px;
     transition: 250ms;
 }
 
@@ -148,9 +166,7 @@ nav .current {
     margin: 20px auto;
     border: 2px solid white;
     padding: 10px;
-    width: 200px;
     outline: none;
-    border-radius: 10px;
     transition: 250ms;
     height: 200px;
     width: 600px;
@@ -171,7 +187,6 @@ nav .current {
     border: 2px solid #26ED90;
     padding: 10px 40px;
     outline: none;
-    border-radius: 10px;
     transition: 250ms;
     cursor: pointer;
 }
