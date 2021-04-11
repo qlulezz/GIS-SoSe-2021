@@ -11,7 +11,7 @@ header {
 }
 
 .stickynav {
-    position: absolute;
+    position: fixed;
     right: 0;
 }
 
@@ -20,7 +20,7 @@ header {
 }
 
 .stickynav ul {
-    margin: 15px 0 0 0;
+    margin: 0;
     list-style: none;
     padding: 5px;
     font-family: sans-serif;
@@ -116,7 +116,7 @@ nav .current {
 }
 
 #line {
-    margin: 5px auto;
+    margin: 5px auto -2px auto;
     background-color: white;
     width: 90%;
     height: 2px;
