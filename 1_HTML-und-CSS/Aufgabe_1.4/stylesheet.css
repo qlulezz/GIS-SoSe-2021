@@ -1,0 +1,214 @@
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.stickynav {
+    position: absolute;
+    right: 0;
+}
+
+.stickynav a {
+    color: inherit;
+}
+
+.stickynav ul {
+    margin: 0;
+    list-style: none;
+    padding: 5px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.stickynav .icons {
+    border: none;
+    margin: auto;
+    list-style: none;
+}
+
+.stickynav .icons li:hover {
+    background-color: inherit;
+}
+
+.stickynav ul li {
+    color: white;
+    text-align: center;
+    display: inline;
+    padding: 5px;
+}
+
+.stickynav ul li:hover {
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+}
+
+.icons li img {
+    filter: invert();
+    box-shadow: none;
+    width: 30px;
+    padding: 5px;
+}
+
+.icons li img:hover {
+    background-color: white;
+    filter: none;
+    border-radius: 10px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: none;
+}
+
+body {
+    background-image: url("../Aufgabe_1.3/bg.png");
+    background-color: black;
+    color: white;
+    background-size: 50px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+body p {
+    line-height: 17px;
+}
+
+a {
+    text-decoration: none;
+    color: #26ED90;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 800px;
+    box-shadow: #030303 0 0 50px;
+}
+
+.round {
+    border-radius: 10px;
+}
+
+video {
+    width: 800px;
+    box-shadow: #030303 0 0 50px;
+}
+
+nav .current {
+    color: #26ED90;
+}
+
+.disc img {
+    width: 600px;
+}
+
+#line {
+    margin: 5px auto -2px auto;
+    background-color: white;
+    width: 90%;
+    height: 2px;
+}
+
+.box {
+    margin: auto;
+    width: 80%;
+    padding: 40px;
+    background-color: black;
+    text-align: center;
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.box input[type="text"],
+.box input[type="email"] {
+    font-family: sans-serif;
+    color: white;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid white;
+    padding: 10px 10px;
+    width: 300px;
+    outline: none;
+    transition: 250ms;
+}
+
+.box input[type="text"]:focus,
+.box input[type="email"]:focus {
+    padding: 10px 14px;
+    border: 2px solid #26ED90;
+}
+
+.box textarea {
+    font-family: sans-serif;
+    color: white;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid white;
+    padding: 10px;
+    outline: none;
+    transition: 250ms;
+    height: 200px;
+    width: 600px;
+    resize: none;
+}
+
+.box textarea:focus {
+    border: 2px solid #26ED90;
+    width: 610px;
+}
+
+.box input[type="submit"] {
+    color: white;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #26ED90;
+    padding: 10px 40px;
+    outline: none;
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.box input[type="submit"]:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    text-decoration: underline;
+}
+
+.box p {
+    font-size: x-small;
+}
+
+.box a {
+    text-decoration: underline;
+}
+
+.dtschtz {
+    text-align: left;
+}
+
+:focus {
+    opacity: .7;
+}
