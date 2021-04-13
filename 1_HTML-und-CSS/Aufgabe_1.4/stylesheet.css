@@ -208,7 +208,3 @@ nav .current {
 .dtschtz {
     text-align: left;
 }
-
-:focus {
-    opacity: .7;
-}
