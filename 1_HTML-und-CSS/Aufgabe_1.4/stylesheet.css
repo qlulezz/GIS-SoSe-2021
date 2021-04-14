@@ -39,7 +39,7 @@ header, main, footer {
 .stickynav {
     display: block;
     position: relative;
-    background: rgba(1, 1, 1, .8);
+    background: rgba(0, 0, 0, .8);
     right: 0;
     box-shadow: 0 -.5rem 50px inset black;
     border-radius: 0 0 1rem 1rem;
