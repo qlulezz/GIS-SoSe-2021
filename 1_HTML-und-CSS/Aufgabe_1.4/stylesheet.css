@@ -15,6 +15,7 @@ html {
 }
 
 body {
+    margin: 0;
     background-image: url("../Aufgabe_1.3/bg.png");
     background-color: black;
     background-size: 50px;
@@ -38,8 +39,10 @@ header, main, footer {
 .stickynav {
     display: block;
     position: relative;
-    background: black;
+    background: rgba(1, 1, 1, .8);
     right: 0;
+    box-shadow: 0 -.5rem 50px inset black;
+    border-radius: 0 0 1rem 1rem;
 }
 
 .stickynav a {
@@ -70,7 +73,7 @@ header, main, footer {
     padding: 5px;
 }
 
-.stickynav ul li:hover{
+.stickynav ul li:hover {
     border-radius: .5rem;
     background-color: white;
     color: black;
@@ -237,6 +240,7 @@ nav .current {
         justify-content: center;
         align-items: center;
     
+        box-shadow: none;
         position: absolute;
         background: none;
     }
