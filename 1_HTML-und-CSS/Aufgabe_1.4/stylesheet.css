@@ -21,7 +21,6 @@ body {
     background-size: 50px;
 
     font-family: sans-serif;
-    font-size: 10px;
     text-align: center;
     color: white;
 }
@@ -220,7 +219,7 @@ nav .current {
 }
 
 .box input[type="submit"]:hover {
-    background-color: white;
+    background: white;
     color: black;
     border: .2rem solid white;
     text-decoration: underline;
@@ -234,22 +233,21 @@ nav .current {
     text-decoration: underline;
 }
 
-.dtschtz {
-    text-align: left;
+.animate {
+    animation: transitionIn 2s;
 }
 
-/*
-@media (min-width: 1024px) {
-    .container {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        grid-template-columns: auto auto;
-        grid-template-rows: auto;
-        column-gap: 1rem;
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
-*/
 
 @media (min-width: 600px){
     .stickynav {
@@ -263,11 +261,35 @@ nav .current {
         background: none;
     }
 
-    .sizing {
-        width: 60rem;
-    }
-
     .disc img {
         width: 35rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        display: grid;
+        justify-content: center;
+        align-items: flex-end;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+    }
+
+    .sizing {
+        width: 95%;
+    }
+
+    #Gif {
+        height: 100%;
+    }
+
+    #Gif img {
+        height: 85%;
+        object-fit: cover;
+    }
+    
+
+    #Edit {
+        width: 50rem;
     }
 }
