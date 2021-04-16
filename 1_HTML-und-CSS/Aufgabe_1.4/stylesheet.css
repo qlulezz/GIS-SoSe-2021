@@ -237,6 +237,10 @@ nav .current {
     animation: transitionIn 2s;
 }
 
+.container p {
+    margin-top: 0;
+}
+
 @keyframes transitionIn {
     from {
         opacity: 0;
