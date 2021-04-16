@@ -79,7 +79,7 @@ header, main, footer {
 }
 
 .icons li img {
-    filter: invert();
+    filter: invert(1);
     box-shadow: none;
     width: 2.5rem;
     padding: .3rem;
@@ -249,7 +249,7 @@ nav .current {
     }
 }
 
-@media (min-width: 600px){
+@media (min-width: 600px) {
     .stickynav {
         display: flex;
         flex-flow: column;
@@ -270,13 +270,14 @@ nav .current {
     .container {
         display: grid;
         justify-content: center;
-        align-items: flex-end;
-        grid-template-columns: auto auto;
-        grid-template-rows: auto;
+        align-items: start;
+        grid-template-columns: 50% 50%;
+        row-gap: 3%;
+        margin-top: 3rem;
     }
 
-    .sizing {
-        width: 95%;
+    .container p {
+        margin: 0;
     }
 
     #Gif {
@@ -284,12 +285,15 @@ nav .current {
     }
 
     #Gif img {
-        height: 85%;
+        height: 96%;
         object-fit: cover;
     }
-    
 
     #Edit {
         width: 50rem;
+    }
+
+    audio {
+        margin-top: 4rem;
     }
 }
