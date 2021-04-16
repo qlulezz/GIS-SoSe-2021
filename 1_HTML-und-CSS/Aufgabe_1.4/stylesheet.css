@@ -234,7 +234,7 @@ nav .current {
 }
 
 .animate {
-    animation: transitionIn 2s;
+    animation: transitionIn 3s;
 }
 
 .container p {
@@ -244,11 +244,11 @@ nav .current {
 @keyframes transitionIn {
     from {
         opacity: 0;
-        transform: translateY(-5rem);
+        transform: translateY(-5rem) rotateY(-30deg);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) rotateY(0);
     }
 }
 
