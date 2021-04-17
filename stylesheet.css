@@ -1,97 +1,73 @@
-header nav ul {
-    text-align: center;
-    list-style: none;
+body {
+    margin: 0;
     background-color: black;
-    padding: 0%;
     font-family: 'Bahnschrift';
+    text-align: center;
+    color: white;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
     word-spacing: 1em;
 }
 
-header nav ul li {
-    color: white;
-    text-align: center;
+li {
     display: inline-block;
     width: 180px;
     padding: 5px;
     border: 2px solid white;
     margin-bottom: 10px;
-    word-spacing: 0;
     border-radius: 10px;
 }
 
-header nav ul li:hover {
+li:hover {
     background-color: white;
     color: black;
 }
 
-header p {
-    text-align: center;
-}
-
-header nav a {
+li a {
     display: block;
     color: inherit;
 }
 
-header a {
-    text-decoration: none;
-}
-
-header a:hover {
-    text-decoration: underline;
-}
-
-body {
-    font-family: "Bahnschrift";
-    color: white;
-    background-color: black;
-}
-
-body h1 {
-    margin-top: 230px;
-    text-align: center;
-}
-
-body p {
+p {
     line-height: 5px;
 }
 
-.page {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
 }
 
 .page a {
+    display: block;
+    margin: 40px auto;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
     background-color: white;
     color: black;
     text-decoration: none;
-    display: block;
     width: 180px;
-    padding: 5px;
-    border: 2px solid black;
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    word-spacing: 0;
-    border-radius: 10px;
     transition: all 250ms ease;
-    position: relative;
 }
 
 .page a:hover {
     background-color: black;
     color: white;
     border: 2px solid white;
-    text-decoration: underline;
     width: 180px;
-    word-spacing: 0;
-    border-radius: 10px;
     box-shadow: 0 0.5rem 0 white;
     transform: translate(0, -0.3rem);
-}
-
-.page a.active:hover {
-    color: white;
-    border: 2px solid white;
 }
