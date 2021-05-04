@@ -201,12 +201,51 @@ var A2;
             rect.drawRect();
         }
     }, 1 / 60);
+    let amount = 20;
+    let interval = 1500;
+    let width = undefined;
+    let height = undefined;
+    let strokeWidth = undefined;
+    let colorFill = undefined;
+    let colorStroke = undefined;
     setInterval(function () {
         objArray = [];
-        for (let i = 0; i < 20; i++) {
-            let r = new Rechteck(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
+        for (let i = 0; i < amount; i++) {
+            let r = new Rechteck(width, height, undefined, undefined, strokeWidth, colorFill, colorStroke);
             objArray.push(r);
         }
-    }, 1500);
+    }, interval);
+    document.getElementById("btnUp").onclick = function () {
+        amount++;
+        document.getElementById("label").innerHTML = "Anzahl Rechtecke: " + amount;
+    };
+    document.getElementById("btnDown").onclick = function () {
+        amount--;
+        document.getElementById("label").innerHTML = "Anzahl Rechtecke: " + amount;
+    };
+    document.getElementById("btnUpdate").onclick = function () {
+        amount = Math.abs(parseInt(document.getElementById("anzahl").value));
+        strokeWidth = parseInt(document.getElementById("strst").value);
+        if (strokeWidth.toString() == "NaN") {
+            strokeWidth = undefined;
+        }
+        colorFill = document.getElementById("fillcol").value;
+        if (colorFill.length <= 0) {
+            colorFill = undefined;
+        }
+        colorStroke = document.getElementById("strcol").value;
+        if (colorStroke.length <= 0) {
+            colorStroke = undefined;
+        }
+        width = parseInt(document.getElementById("wid").value);
+        if (width.toString() == "NaN") {
+            width = undefined;
+        }
+        height = parseInt(document.getElementById("hgt").value);
+        if (height.toString() == "NaN") {
+            height = undefined;
+        }
+        document.getElementById("label").innerHTML = "Anzahl Rechtecke: " + Math.abs(amount);
+    };
 })(A2 || (A2 = {}));
 //# sourceMappingURL=script.js.map

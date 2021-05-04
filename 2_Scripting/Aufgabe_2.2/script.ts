@@ -313,15 +313,61 @@ namespace A2 {
             rect.moveRect();
             rect.drawRect();
         }
-    }, 1 / 60);
+    },          1 / 60);
+
+    let amount: number = 20;
+    let interval: number = 1500;
+    let width: number = undefined;
+    let height: number = undefined;
+    let strokeWidth: number = undefined;
+    let colorFill: string = undefined;
+    let colorStroke: string = undefined;
 
     setInterval(function (): void {
         objArray = [];
-        for (let i: number = 0; i < 20; i++) {
-            let r: Rechteck = new Rechteck(undefined, undefined, undefined, undefined, undefined /*5*/, undefined, undefined /*"black"*/);
+        for (let i: number = 0; i < amount; i++) {
+            let r: Rechteck = new Rechteck(width, height, undefined, undefined, strokeWidth, colorFill, colorStroke);
             // Standartmäßig wird alles zufällig generiert. Hier kann jeder Zufallswert manuell überschrieben werden.
             // Zum Beispiel kann die Dicke des Strokes oder die Farbe festgelegt werden.
             objArray.push(r);
         }
-    }, 1500);
+    },          interval);
+
+    // Alles ab diesem Punkt ist freiwillig (Bonus) und wurde nach der Abgabe am Sonntag zusätzlich hinzugefügt
+    document.getElementById("btnUp").onclick = function (): void {
+        amount++;
+        document.getElementById("label").innerHTML = "Anzahl Rechtecke: " + amount;
+    };
+
+    document.getElementById("btnDown").onclick = function (): void {
+        amount--;
+        document.getElementById("label").innerHTML = "Anzahl Rechtecke: " + amount;
+    };
+
+    document.getElementById("btnUpdate").onclick = function (): void {
+        amount = Math.abs(parseInt((document.getElementById("anzahl") as HTMLInputElement).value));
+
+        strokeWidth = parseInt((document.getElementById("strst") as HTMLInputElement).value);
+        if (strokeWidth.toString() == "NaN") {
+            strokeWidth = undefined;
+        }
+        colorFill = (document.getElementById("fillcol") as HTMLInputElement).value;
+        if (colorFill.length <= 0) {
+            colorFill = undefined;
+        }
+        colorStroke = (document.getElementById("strcol") as HTMLInputElement).value;
+        if (colorStroke.length <= 0) {
+            colorStroke = undefined;
+        }
+        width = parseInt((document.getElementById("wid") as HTMLInputElement).value);
+        if (width.toString() == "NaN") {
+            width = undefined;
+        }
+        height = parseInt((document.getElementById("hgt") as HTMLInputElement).value);
+        if (height.toString() == "NaN") {
+            height = undefined;
+        }
+        document.getElementById("label").innerHTML = "Anzahl Rechtecke: " + Math.abs(amount); 
+    };
+
 }

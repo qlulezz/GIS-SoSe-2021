@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,32 @@
     <title>GIS Aufgabe 2.2</title>
     <script src="./script.js" defer></script>
 </head>
+
 <body>
     <h1>Aufgabe 2.2</h1>
     <p>Die geforderten Ausgaben von Aufgabe 2.2 sind in der Konsole (STRG+Shift+K in Firefox) zu sehen.</p>
-    <canvas id="Canvas1" width="1200" height="600"></canvas>
-    <canvas id="Canvas2" width="1200" height="600"></canvas>
+    <canvas id="Canvas1" width="400" height="400"></canvas>
     <br>
+    <canvas id="Canvas2" width="1200" height="600"></canvas>
+    <p id="label">Anzahl Rechtecke: 20</p>
+    <button id="btnUp">Mehr Rechtecke</button>
+    <button id="btnDown">Weniger Rechtecke</button>
+    <br>
+    <input type="number" name="anzahl" id="anzahl" placeholder="Anzahl Rechtecke">
+    <br>
+    <input type="number" name="strst" id="strst" placeholder="Strich-Stärke">
+    <br>
+    <input type="text" name="fillcol" id="fillcol" placeholder="Füll-Farbe">
+    <br>
+    <input type="text" name="strcol" id="strcol" placeholder="Strich-Farbe">
+    <br>
+    <input type="number" name="width" id="wid" placeholder="Breite (Fix)">
+    <br>
+    <input type="number" name="height" id="hgt" placeholder="Höhe (Fix)">
+    <br>
+    <button id="btnUpdate">Update</button>
+    <br><br>
     <a href="../../0_Main/start.html">Zurück zur Übersichtsseite</a>
 </body>
+
 </html>
