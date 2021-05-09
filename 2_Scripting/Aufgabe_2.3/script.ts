@@ -151,16 +151,6 @@ namespace A3 {
             + border + rgb2 + "; margin: " + margin1 + margin2 + margin3 + margin4;
         amount++;
         anzeige.textContent = "Anzahl Rechtecke: " + amount;
-
-        /*
-        let r1: number = (Math.random() + (Math.random() - 1)) / 10;
-        let r2: number = (Math.random() + (Math.random() - 1)) / 10;
-        setInterval(function (): void {
-            width += r1;
-            height += r2;
-        },          1 / 60);
-        */
-
         return output;
     }
 
