@@ -1,0 +1,159 @@
+:root {
+    --prim: #26ED90;
+    --liv: limegreen;
+    --com: deepskyblue;
+    --ind: orange;
+    --free: lime;
+    --occ: red;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-size: 50px;
+    font-family: Roboto;
+    text-align: center;
+}
+
+.start {
+    margin: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    text-transform: uppercase;
+}
+
+nav a {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav ul {
+    margin: 0 0 3rem;
+    list-style: none;
+    padding: .5rem;
+    font-weight: bold;
+}
+
+nav ul li {
+    margin: 2rem;
+    text-align: center;
+    display: inline;
+    padding: .8rem;
+    border: 3px solid white;
+}
+
+nav .current {
+    background-color: rgb(200,200,200);
+    border-radius: 100vw;
+}
+
+#line {
+    margin: 2rem auto;
+    background-color: black;
+    width: 35rem;
+    height: .4rem;
+    border-radius: 100vw;
+}
+
+.building div > div {
+    display: inline-block;
+    width: 18rem;
+    height: 18rem;
+    margin: 2rem 4.5rem;
+    transform:rotatex(45deg) rotateZ(45deg) translateZ(-1em);
+    transform-style: preserve-3d;
+}
+
+.building div > div:hover {
+    cursor: pointer;
+}
+
+.housing div {
+    background-color: var(--liv);
+}
+
+.commercial div {
+    background-color: var(--com);
+}
+
+.industrial div {
+    background-color: var(--ind);
+}
+
+.position {
+    margin: 1rem auto;
+    transform:rotatex(45deg) rotateZ(45deg) translateZ(-1em);
+    transform-style: preserve-3d;
+}
+
+.position div > div {
+    display: inline-block;
+    width: 18rem;
+    height: 18rem;
+    background-color: gray;
+}
+
+.position div > div:hover::after {
+    content: "FREIES FELD";
+    background-color: rgb(200,200,200);
+    transform: translateX(-50%);
+    margin: 0;
+    width: 18rem;
+    height: 18rem;
+    position: absolute;
+    box-shadow: 0 0 0 20px var(--free) inset;
+    cursor: pointer;
+}
+
+.city {
+    margin: 1rem auto;
+    transform:rotatex(45deg) rotateZ(45deg) translateZ(-1em);
+    transform-style: preserve-3d;
+}
+
+.city div > div {
+    display: inline-block;
+    width: 18rem;
+    height: 18rem;
+    background-color: gray;
+}
+
+.city .liv {
+    background-color: var(--liv);
+}
+
+.city .com {
+    background-color: var(--com);
+}
+
+.city .ind {
+    background-color: var(--ind);
+}
