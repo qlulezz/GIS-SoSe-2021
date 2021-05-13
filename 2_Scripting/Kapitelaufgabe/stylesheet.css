@@ -83,29 +83,15 @@ nav .current {
     border-radius: 100vw;
 }
 
-.building div > div {
+#building div > div {
     display: inline-block;
     width: 18rem;
     height: 18rem;
     margin: 2rem 4.5rem;
-    transform:rotatex(45deg) rotateZ(45deg) translateZ(-1em);
-    transform-style: preserve-3d;
 }
 
-.building div > div:hover {
+#building div > div:hover, .building div > div:hover {
     cursor: pointer;
-}
-
-.housing div {
-    background-color: var(--liv);
-}
-
-.commercial div {
-    background-color: var(--com);
-}
-
-.industrial div {
-    background-color: var(--ind);
 }
 
 .position {
