@@ -22,7 +22,7 @@ html {
 body {
     margin: 0;
     background-size: 50px;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     text-align: center;
 }
 
@@ -121,8 +121,16 @@ nav .current {
 
 .city {
     margin: 1rem auto;
-    transform:rotatex(45deg) rotateZ(45deg) translateZ(-1em);
+    transform: rotateX(45deg) rotateZ(45deg) translateZ(-1em);
     transform-style: preserve-3d;
+}
+
+.city img {
+    display: inline-block;
+    width: 27rem;
+    height: 27rem;
+    transform: rotateZ(-45deg) scaleY(1.66666666);
+    transform-style: flat;
 }
 
 .city div > div {
@@ -130,16 +138,12 @@ nav .current {
     width: 18rem;
     height: 18rem;
     background-color: gray;
+/*     transform: rotateX(45deg) rotateZ(45deg) translateZ(-1em);
+    transform-style: preserve-3d; */
 }
 
-.city .liv {
-    background-color: var(--liv);
-}
-
-.city .com {
-    background-color: var(--com);
-}
-
-.city .ind {
-    background-color: var(--ind);
+@media print {
+    nav, a, button, h1, h3, .city div div {
+        display: none;
+    }
 }

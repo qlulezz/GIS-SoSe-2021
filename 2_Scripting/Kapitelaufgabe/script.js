@@ -2,13 +2,44 @@
 var Kapitelaufgabe;
 (function (Kapitelaufgabe) {
     let body = document.body;
+    let header = document.createElement("h2");
+    header.innerHTML = "<u>Wähle ein Gebäude aus:</u>";
+    body.appendChild(header);
+    let nav = document.createElement("nav");
+    navSetup("");
     let div = document.createElement("div");
     body.appendChild(div);
     let b = document.createElement("div");
     div.appendChild(b);
     b.setAttribute("id", "building");
+    let wrapper = document.createElement("div");
     let jsn = Kapitelaufgabe.com;
     let allParts = JSON.parse(jsn);
+    console.log(localStorage);
+    function navSetup(element) {
+        nav.innerHTML = "";
+        body.appendChild(nav);
+        let ul = document.createElement("ul");
+        nav.appendChild(ul);
+        let liGebaeudewahl = document.createElement("li");
+        liGebaeudewahl.innerText = "Gebäudewahl";
+        let liPositionswahl = document.createElement("li");
+        liPositionswahl.innerText = "Positionswahl";
+        let liErgebnis = document.createElement("li");
+        liErgebnis.innerText = "Ergebnis";
+        if (element == "pw") {
+            liPositionswahl.classList.add("current");
+        }
+        else if (element == "end") {
+            liErgebnis.classList.add("current");
+        }
+        else {
+            liGebaeudewahl.classList.add("current");
+        }
+        ul.appendChild(liGebaeudewahl);
+        ul.appendChild(liPositionswahl);
+        ul.appendChild(liErgebnis);
+    }
     function createPartDiv(_part, _index) {
         let div = document.createElement("div");
         let img = document.createElement("img");
@@ -23,12 +54,13 @@ var Kapitelaufgabe;
         div.appendChild(h2);
         return div;
         function Selection1(_e) {
-            console.log("innere Funktion", _part);
+            console.log("Ausgewähltes Teil", _part);
         }
         function Selection2(_e) {
             let target = _e.currentTarget;
-            let index = Number(target.dataset.index);
-            console.log("äußere Funktion", allParts.Residential[index]);
+            let index = Number(target.dataset.index) + "";
+            console.log("Teil-Index:", index);
+            selectPosition(_part);
         }
         function Styling(color) {
             let output = "";
@@ -43,15 +75,15 @@ var Kapitelaufgabe;
         let r = document.createElement("div");
         let label = document.createElement("h2");
         switch (_parts) {
-            case (allParts.Residential): {
+            case (allParts.residential): {
                 label.innerText = "Residential";
                 break;
             }
-            case (allParts.Commercial): {
+            case (allParts.commercial): {
                 label.innerText = "Commercial";
                 break;
             }
-            case (allParts.Industrial): {
+            case (allParts.industrial): {
                 label.innerText = "Industrial";
                 break;
             }
@@ -64,8 +96,107 @@ var Kapitelaufgabe;
             r.appendChild(div);
         }
     }
-    showPossibilities(allParts.Residential);
-    showPossibilities(allParts.Commercial);
-    showPossibilities(allParts.Industrial);
+    showPossibilities(allParts.residential);
+    showPossibilities(allParts.commercial);
+    showPossibilities(allParts.industrial);
+    let locArray;
+    if (localStorage.getItem("arr") != null) {
+        locArray = JSON.parse(localStorage.getItem("arr"));
+    }
+    else {
+        locArray = [];
+    }
+    let groeße = 3;
+    function selectPosition(_part) {
+        navSetup("pw");
+        b.innerHTML = "";
+        header.innerHTML = "<u>Wähle eine Position aus:</u>";
+        body.appendChild(wrapper);
+        wrapper.classList.add("position");
+        for (let i = 0; i < groeße; i++) {
+            let div = document.createElement("div");
+            wrapper.appendChild(div);
+            for (let j = 0; j < groeße; j++) {
+                let box = document.createElement("div");
+                box.setAttribute("id", i + "," + j);
+                box.addEventListener("click", setItem);
+                function setItem() {
+                    select(i + "," + j);
+                }
+                div.appendChild(box);
+            }
+        }
+        function select(_s) {
+            locArray.push(JSON.stringify(_part), _s);
+            localStorage.setItem("arr", JSON.stringify(locArray));
+            console.log("Aktuelles Array:", locArray);
+            console.log("Aktueller Storage:", localStorage);
+            showCity();
+        }
+    }
+    function showCity() {
+        let currentArray = JSON.parse(localStorage.getItem("arr"));
+        let _part = JSON.parse(currentArray[0]);
+        let _s = currentArray[1];
+        console.log("Hinzugefügtes Gebäude:\n\nName: " + _part.name, "\nSource: " + _part.source, "\nFarbe: " + _part.color, "\nan Position: " + _s);
+        navSetup("end");
+        wrapper.innerHTML = "";
+        header.innerHTML = "<u>Deine Stadt</u>";
+        let btnAdd = document.createElement("button");
+        btnAdd.innerText = "Mehr Gebäude hinzufügen";
+        btnAdd.addEventListener("click", addBuilding);
+        body.appendChild(btnAdd);
+        let btnReset = document.createElement("button");
+        btnReset.innerText = "Stadt abreissen";
+        btnReset.addEventListener("click", restart);
+        body.appendChild(btnReset);
+        let btnPrint = document.createElement("button");
+        btnPrint.innerText = "Stadt ausdrucken";
+        btnPrint.addEventListener("click", print);
+        body.appendChild(btnPrint);
+        let city = document.createElement("div");
+        city.classList.add("city");
+        body.appendChild(city);
+        let temp = [];
+        for (let x = 0; x < currentArray.length; x += 2) {
+            _part = JSON.parse(currentArray[0 + x]);
+            _s = currentArray[1 + x];
+            for (let i = 0; i < groeße; i++) {
+                let div = document.createElement("div");
+                city.appendChild(div);
+                for (let j = 0; j < groeße; j++) {
+                    let fall = i + "," + j;
+                    if (fall == _s) {
+                        let img = document.createElement("img");
+                        img.src = _part.source;
+                        div.appendChild(img);
+                    }
+                    else {
+                        if (!temp.includes(fall)) {
+                            let box = document.createElement("div");
+                            box.setAttribute("id", fall);
+                            div.appendChild(box);
+                        }
+                    }
+                    temp.push(fall);
+                }
+            }
+        }
+    }
+    function restart() {
+        if (confirm("Willst du wirklich deine Stadt abreissen?\n ") == true) {
+            localStorage.clear();
+            window.location.reload();
+        }
+        else {
+            alert("Restart abgebrochen.\n ");
+        }
+    }
+    function addBuilding() {
+        window.location.reload();
+    }
+    function print() {
+        window.print();
+    }
 })(Kapitelaufgabe || (Kapitelaufgabe = {}));
 //# sourceMappingURL=script.js.map

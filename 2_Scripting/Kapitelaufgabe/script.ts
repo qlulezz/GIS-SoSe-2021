@@ -13,11 +13,20 @@ namespace Kapitelaufgabe {
     // Diese Aufgabe wird nach und nach vervollständigt. Sie ist nicht in 2.3, 2.4 und 2.5 aufzuteilen.
     // Punkt "Kapitelaufgabe" auf der Startseite (https://qlulezz.github.io/GIS-SoSe-2021/0_Main/start.html).
 
+    // 1. Funktion: Aktive Auswahl mit Key -> LocalStorage
+    // 2.  " Aktive Positionswahl
+    // 3. Vor dem setzten des Keys ein Array erstellen, [part, index], Array auch im JSON, Selection in ein Objekt schreiben und Array daraus erstellen
+    // 4. Array wieder aus dem LocalStorage ziehen, JSON.parse -> Array und wieder abspeichern
+
+    // Lädst Array mit tupels aus JSON, Fügst Haus und Pos ein (Die lädst du aus JSON ), json stringify und in local storage
+    // Endseite: Lädst Array mit tupels aus JSON, Generiere Stadt anhand Position
+
+
     // City Generator
     export interface Combined {
-        Residential: Part[];
-        Commercial: Part[];
-        Industrial: Part[];
+        residential: Part[];
+        commercial: Part[];
+        industrial: Part[];
     }
 
     // Gebäudekategorie
@@ -28,13 +37,19 @@ namespace Kapitelaufgabe {
     }
 
     export interface Selection {
-        Residential: Part;
-        Commercial: Part;
-        Industrial: Part;
+        active: Part;
+        position: string;
     }
 
     // Start HTML Build
     let body: HTMLElement = document.body;
+
+    let header: HTMLHeadingElement = document.createElement("h2");
+    header.innerHTML = "<u>Wähle ein Gebäude aus:</u>";
+    body.appendChild(header);
+
+    let nav: HTMLElement = document.createElement("nav");
+    navSetup("");
 
     //Div für Divs anlegen
     let div: HTMLDivElement = document.createElement("div");
@@ -44,9 +59,38 @@ namespace Kapitelaufgabe {
     div.appendChild(b);
     b.setAttribute("id", "building");
 
+    let wrapper: HTMLDivElement = document.createElement("div");
+
     // Setup JSON
     let jsn: string = com;
     let allParts: Combined = JSON.parse(jsn);
+    console.log(localStorage);
+
+    // Setup der Navigationsleiste / aktuelle Seitenanzeige
+    function navSetup(element: string): void {
+        nav.innerHTML = "";
+        body.appendChild(nav);
+        let ul: HTMLUListElement = document.createElement("ul");
+        nav.appendChild(ul);
+
+        let liGebaeudewahl: HTMLLIElement = document.createElement("li");
+        liGebaeudewahl.innerText = "Gebäudewahl";
+        let liPositionswahl: HTMLLIElement = document.createElement("li");
+        liPositionswahl.innerText = "Positionswahl";
+        let liErgebnis: HTMLLIElement = document.createElement("li");
+        liErgebnis.innerText = "Ergebnis";
+
+        if (element == "pw") {
+            liPositionswahl.classList.add("current");
+        } else if (element == "end") {
+            liErgebnis.classList.add("current");
+        } else {
+            liGebaeudewahl.classList.add("current");
+        }
+        ul.appendChild(liGebaeudewahl);
+        ul.appendChild(liPositionswahl);
+        ul.appendChild(liErgebnis);
+    }
 
     // Fülle Divs mit den Parts aus dem Array 
     function createPartDiv(_part: Part, _index: number): HTMLDivElement {
@@ -68,14 +112,16 @@ namespace Kapitelaufgabe {
         return div;
 
         function Selection1(_e: Event): void {
-            console.log("innere Funktion", _part);
+            console.log("Ausgewähltes Teil", _part);
         }
 
         function Selection2(_e: Event): void {
             let target: HTMLElement = <HTMLElement>_e.currentTarget;
-            let index: number = Number(target.dataset.index);
+            let index: string = Number(target.dataset.index) + "";
 
-            console.log("äußere Funktion", allParts.Residential[index]);
+            console.log("Teil-Index:", index);
+            // localStorage.setItem(index, JSON.stringify(_part));
+            selectPosition(_part);
         }
 
         function Styling(color: string): string {
@@ -95,15 +141,15 @@ namespace Kapitelaufgabe {
         // Set Label for Divs
         let label: HTMLHeadingElement = document.createElement("h2");
         switch (_parts) {
-            case (allParts.Residential): {
+            case (allParts.residential): {
                 label.innerText = "Residential";
                 break;
             }
-            case (allParts.Commercial): {
+            case (allParts.commercial): {
                 label.innerText = "Commercial";
                 break;
             }
-            case (allParts.Industrial): {
+            case (allParts.industrial): {
                 label.innerText = "Industrial";
                 break;
             }
@@ -120,8 +166,121 @@ namespace Kapitelaufgabe {
     }
 
     // Execute HTML Build
-    showPossibilities(allParts.Residential);
-    showPossibilities(allParts.Commercial);
-    showPossibilities(allParts.Industrial);
+    showPossibilities(allParts.residential);
+    showPossibilities(allParts.commercial);
+    showPossibilities(allParts.industrial);
 
+    let locArray: string[];
+    if (localStorage.getItem("arr") != null) {
+        locArray = JSON.parse(localStorage.getItem("arr"));
+    } else {
+        locArray = [];
+    }
+
+    // Build second Page
+    let groeße: number = 3;
+    function selectPosition(_part: Part): void {
+        navSetup("pw");
+        b.innerHTML = "";
+        header.innerHTML = "<u>Wähle eine Position aus:</u>";
+        body.appendChild(wrapper);
+        wrapper.classList.add("position");
+
+        for (let i: number = 0; i < groeße; i++) {
+            let div: HTMLDivElement = document.createElement("div");
+            wrapper.appendChild(div);
+            for (let j: number = 0; j < groeße; j++) {
+                let box: HTMLDivElement = document.createElement("div");
+                box.setAttribute("id", i + "," + j);
+                box.addEventListener("click", setItem);
+                function setItem(): void {
+                    select(i + "," + j);
+                }
+                div.appendChild(box);
+            }
+        }
+
+        function select(_s: string): void {
+            locArray.push(JSON.stringify(_part), _s);
+            localStorage.setItem("arr", JSON.stringify(locArray));
+            console.log("Aktuelles Array:", locArray);
+            console.log("Aktueller Storage:", localStorage);
+            showCity();
+        }
+    }
+
+    // Build final page
+    function showCity(): void {
+        let currentArray: string[] = JSON.parse(localStorage.getItem("arr"));
+        let _part: Part = JSON.parse(currentArray[0]);
+        let _s: string = currentArray[1];
+        console.log("Hinzugefügtes Gebäude:\n\nName: " + _part.name, "\nSource: " + _part.source, "\nFarbe: " + _part.color, "\nan Position: " + _s);
+
+        navSetup("end");
+        wrapper.innerHTML = "";
+        header.innerHTML = "<u>Deine Stadt</u>";
+        let btnAdd: HTMLButtonElement = document.createElement("button");
+        btnAdd.innerText = "Mehr Gebäude hinzufügen";
+        btnAdd.addEventListener("click", addBuilding);
+        body.appendChild(btnAdd);
+
+        let btnReset: HTMLButtonElement = document.createElement("button");
+        btnReset.innerText = "Stadt abreissen";
+        btnReset.addEventListener("click", restart);
+        body.appendChild(btnReset);
+
+        let btnPrint: HTMLButtonElement = document.createElement("button");
+        btnPrint.innerText = "Stadt ausdrucken";
+        btnPrint.addEventListener("click", print);
+        body.appendChild(btnPrint);
+
+        let city: HTMLDivElement = document.createElement("div");
+        city.classList.add("city");
+        body.appendChild(city);
+
+        let temp: string[] = [];
+
+        // TODO: NEEDS FIXING
+        // -> Diese Stelle funktioniert noch nicht ganz, auch CSS ist noch nicht fertig
+        for (let x: number = 0; x < currentArray.length; x += 2) {
+            _part = JSON.parse(currentArray[0 + x]);
+            _s = currentArray[1 + x];
+            for (let i: number = 0; i < groeße; i++) {
+                let div: HTMLDivElement = document.createElement("div");
+                city.appendChild(div);
+                for (let j: number = 0; j < groeße; j++) {
+                    let fall: string = i + "," + j;
+                    if (fall == _s) {
+                        let img: HTMLImageElement = document.createElement("img");
+                        img.src = _part.source;
+                        div.appendChild(img);
+                    } else {
+                        if (!temp.includes(fall)) {
+                            let box: HTMLDivElement = document.createElement("div");
+                            box.setAttribute("id", fall);
+                            div.appendChild(box);
+                        }
+                    }
+                    temp.push(fall);
+                }
+            }
+        }
+    }
+
+    function restart(): void {
+        if (confirm("Willst du wirklich deine Stadt abreissen?\n ") == true) {
+            localStorage.clear();
+            window.location.reload();
+        } else {
+            alert("Restart abgebrochen.\n ");
+        }
+    }
+
+    function addBuilding(): void {
+        window.location.reload();
+    }
+
+    function print(): void {
+        window.print();
+    }
 }
