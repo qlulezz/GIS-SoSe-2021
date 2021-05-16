@@ -147,7 +147,7 @@ var Kapitelaufgabe;
         btnAdd.addEventListener("click", addBuilding);
         body.appendChild(btnAdd);
         let btnReset = document.createElement("button");
-        btnReset.innerText = "Stadt abreissen";
+        btnReset.innerText = "Stadt abreißen";
         btnReset.addEventListener("click", restart);
         body.appendChild(btnReset);
         let btnPrint = document.createElement("button");
@@ -169,7 +169,12 @@ var Kapitelaufgabe;
                     if (fall == _s) {
                         let img = document.createElement("img");
                         img.src = _part.source;
-                        div.appendChild(img);
+                        if (temp.includes(fall)) {
+                            document.getElementById(_s).replaceWith(img);
+                        }
+                        else {
+                            div.appendChild(img);
+                        }
                     }
                     else {
                         if (!temp.includes(fall)) {

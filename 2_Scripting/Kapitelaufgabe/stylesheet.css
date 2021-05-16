@@ -44,9 +44,8 @@ h2 {
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-
     text-transform: uppercase;
 }
 
@@ -83,15 +82,55 @@ nav .current {
     border-radius: 100vw;
 }
 
+button {
+    padding: .5rem;
+    margin: auto 1rem;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    background: none;
+    border: 3px solid #3498db;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0;
+    border-radius: 100vw;
+    transition: 300ms;
+}
+
+button:hover {
+    color: #fff;
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #3498db;
+    z-index: -1;
+    transition: 300ms;
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+button:hover::before {
+    height: 180%;
+}
+
 #building div > div {
     display: inline-block;
-    width: 18rem;
-    height: 18rem;
-    margin: 2rem 4.5rem;
+    width: 22rem;
+    margin: 2rem;
 }
 
 #building div > div:hover, .building div > div:hover {
     cursor: pointer;
+}
+
+#building h2 {
+    width: max-content;
+    margin: 2rem auto;
 }
 
 .position {
@@ -102,6 +141,7 @@ nav .current {
 
 .position div > div {
     display: inline-block;
+    margin: auto 2px;
     width: 18rem;
     height: 18rem;
     background-color: gray;
@@ -121,29 +161,29 @@ nav .current {
 
 .city {
     margin: 1rem auto;
-    transform: rotateX(45deg) rotateZ(45deg) translateZ(-1em);
-    transform-style: preserve-3d;
 }
 
 .city img {
     display: inline-block;
-    width: 27rem;
-    height: 27rem;
-    transform: rotateZ(-45deg) scaleY(1.66666666);
-    transform-style: flat;
+    max-width: 27rem;
 }
 
 .city div > div {
+    margin: -1.8rem 3.6rem;
     display: inline-block;
     width: 18rem;
     height: 18rem;
     background-color: gray;
-/*     transform: rotateX(45deg) rotateZ(45deg) translateZ(-1em);
-    transform-style: preserve-3d; */
+    transform: rotateX(55deg) rotateZ(45deg) translateZ(-1em);
 }
 
 @media print {
     nav, a, button, h1, h3, .city div div {
         display: none;
+    }
+    h2 {
+        margin: 0;
+        padding: 0;
+        top: 0;
     }
 }

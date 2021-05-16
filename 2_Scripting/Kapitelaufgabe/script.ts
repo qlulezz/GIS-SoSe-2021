@@ -36,11 +36,6 @@ namespace Kapitelaufgabe {
         color: string;
     }
 
-    export interface Selection {
-        active: Part;
-        position: string;
-    }
-
     // Start HTML Build
     let body: HTMLElement = document.body;
 
@@ -225,7 +220,7 @@ namespace Kapitelaufgabe {
         body.appendChild(btnAdd);
 
         let btnReset: HTMLButtonElement = document.createElement("button");
-        btnReset.innerText = "Stadt abreissen";
+        btnReset.innerText = "Stadt abreißen";
         btnReset.addEventListener("click", restart);
         body.appendChild(btnReset);
 
@@ -238,10 +233,10 @@ namespace Kapitelaufgabe {
         city.classList.add("city");
         body.appendChild(city);
 
+        // An dieser Schleife saß ich bestimmt 2 Stunden, wenn ich irgendetwas nicht so umgesetzt habe, wie ich es eigentlich hätte machen sollen, lass es mich wissen.
+        // Ich gehe starkt davon aus, dass dies hier nicht die beste Lösung ist.
+        // Ignorier jegliche CSS Probleme, die muss ich noch fixen. Auch die letzten Gebäude muss ich noch einsetzen.
         let temp: string[] = [];
-
-        // TODO: NEEDS FIXING
-        // -> Diese Stelle funktioniert noch nicht ganz, auch CSS ist noch nicht fertig
         for (let x: number = 0; x < currentArray.length; x += 2) {
             _part = JSON.parse(currentArray[0 + x]);
             _s = currentArray[1 + x];
@@ -253,7 +248,11 @@ namespace Kapitelaufgabe {
                     if (fall == _s) {
                         let img: HTMLImageElement = document.createElement("img");
                         img.src = _part.source;
-                        div.appendChild(img);
+                        if (temp.includes(fall)) {
+                            document.getElementById(_s).replaceWith(img);
+                        } else {
+                            div.appendChild(img);
+                        }
                     } else {
                         if (!temp.includes(fall)) {
                             let box: HTMLDivElement = document.createElement("div");
