@@ -91,7 +91,7 @@ namespace Kapitelaufgabe {
     function createPartDiv(_part: Part, _index: number): HTMLDivElement {
         let div: HTMLDivElement = document.createElement("div");
 
-        // Kein Button wird erstell um die Auswahl zu treffen, stattdessen kann direkt auf das Bild geklickt werden.
+        // Kein Button wird erstellt um die Auswahl zu treffen, stattdessen kann direkt auf das Bild geklickt werden.
         let img: HTMLImageElement = document.createElement("img");
         img.src = _part.source;
         img.addEventListener("click", Selection1);
@@ -234,7 +234,7 @@ namespace Kapitelaufgabe {
         body.appendChild(city);
 
         // An dieser Schleife saß ich bestimmt 2 Stunden, wenn ich irgendetwas nicht so umgesetzt habe, wie ich es eigentlich hätte machen sollen, lass es mich wissen.
-        // Ich gehe starkt davon aus, dass dies hier nicht die beste Lösung ist.
+        // Ich gehe stark davon aus, dass dies hier nicht die beste Lösung ist.
         // Ignorier jegliche CSS Probleme, die muss ich noch fixen. Auch die letzten Gebäude muss ich noch einsetzen.
         let temp: string[] = [];
         for (let x: number = 0; x < currentArray.length; x += 2) {
@@ -248,6 +248,7 @@ namespace Kapitelaufgabe {
                     if (fall == _s) {
                         let img: HTMLImageElement = document.createElement("img");
                         img.src = _part.source;
+                        img.setAttribute("id", fall);
                         if (temp.includes(fall)) {
                             document.getElementById(_s).replaceWith(img);
                         } else {

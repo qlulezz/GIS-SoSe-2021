@@ -169,6 +169,7 @@ var Kapitelaufgabe;
                     if (fall == _s) {
                         let img = document.createElement("img");
                         img.src = _part.source;
+                        img.setAttribute("id", fall);
                         if (temp.includes(fall)) {
                             document.getElementById(_s).replaceWith(img);
                         }
