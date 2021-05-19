@@ -43,6 +43,12 @@ namespace Kapitelaufgabe {
     header.innerHTML = "<u>Wähle ein Gebäude aus:</u>";
     body.appendChild(header);
 
+    let reset: HTMLAnchorElement = document.createElement("a");
+    reset.innerText = "LocalStorage leeren";
+    reset.addEventListener("click", restart);
+    reset.setAttribute("style", "margin: 30px; position: absolute; top: 0; left: 0; color: blue; text-decoration: underline; cursor: pointer;");
+    body.appendChild(reset);
+
     let nav: HTMLElement = document.createElement("nav");
     navSetup("");
 
@@ -57,8 +63,23 @@ namespace Kapitelaufgabe {
     let wrapper: HTMLDivElement = document.createElement("div");
 
     // Setup JSON
-    let jsn: string = com;
-    let allParts: Combined = JSON.parse(jsn);
+    // let allParts: Combined = JSON.parse(com);
+    let allParts: Combined;
+    async function getJSON(_url: RequestInfo): Promise<Combined> {
+        let response: Response = await fetch(_url);
+        console.log("Response JSON", response);
+        return await response.json();
+    }
+    async function temp(): Promise<void> {
+        allParts = await getJSON("http://127.0.0.1:5500/2_Scripting/Kapitelaufgabe/data.json");
+        console.log("in der Funktion", allParts);
+        await showPossibilities(allParts.residential);
+        await showPossibilities(allParts.commercial);
+        await showPossibilities(allParts.industrial);
+    }
+    temp();
+    console.log("außerhalb der Funktion", allParts);
+    //console.log(getJSON("http://127.0.0.1:5500/2_Scripting/Kapitelaufgabe/data.json"));
     console.log(localStorage);
 
     // Setup der Navigationsleiste / aktuelle Seitenanzeige
@@ -129,7 +150,7 @@ namespace Kapitelaufgabe {
         }
     }
 
-    function showPossibilities(_parts: Part[]): void {
+    async function showPossibilities(_parts: Part[]): Promise<void> {
         // Create Sub-Div
         let r: HTMLDivElement = document.createElement("div");
 
@@ -161,9 +182,9 @@ namespace Kapitelaufgabe {
     }
 
     // Execute HTML Build
-    showPossibilities(allParts.residential);
-    showPossibilities(allParts.commercial);
-    showPossibilities(allParts.industrial);
+    /*     showPossibilities(allParts.residential);
+        showPossibilities(allParts.commercial);
+        showPossibilities(allParts.industrial); */
 
     let locArray: string[];
     if (localStorage.getItem("arr") != null) {
@@ -268,7 +289,7 @@ namespace Kapitelaufgabe {
     }
 
     function restart(): void {
-        if (confirm("Willst du wirklich deine Stadt abreissen?\n ") == true) {
+        if (confirm("Willst du wirklich deine Stadt abreißen?\n ") == true) {
             localStorage.clear();
             window.location.reload();
         } else {
@@ -283,4 +304,29 @@ namespace Kapitelaufgabe {
     function print(): void {
         window.print();
     }
+
+    /*
+    async function communicateText(_url: RequestInfo): Promise<void> {
+        let response: Response = await fetch(_url);
+        console.log("Response", response);
+        let s: string = await response.text();
+        console.log(s);
+    }
+
+    async function communicateJSON(_url: RequestInfo): Promise<void> {
+        let response: Response = await fetch(_url);
+        console.log("Response", response);
+        let serverReply: ServerReply = await response.json();
+        console.log(serverReply);
+    }
+
+    communicateText("https://hs-furtwangen.github.io/GIS-SoSe-2021/content/2-chapter/L2.5/test.txt");
+    communicateJSON("https://hs-furtwangen.github.io/GIS-SoSe-2021/content/2-chapter/L2.5/testjson.json");
+
+    interface ServerReply {
+        gruss: string;
+        text: string;
+        zweiterText: string;
+    }
+    */
 }

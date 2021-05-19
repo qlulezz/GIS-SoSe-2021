@@ -5,6 +5,11 @@ var Kapitelaufgabe;
     let header = document.createElement("h2");
     header.innerHTML = "<u>Wähle ein Gebäude aus:</u>";
     body.appendChild(header);
+    let reset = document.createElement("a");
+    reset.innerText = "LocalStorage leeren";
+    reset.addEventListener("click", restart);
+    reset.setAttribute("style", "margin: 30px; position: absolute; top: 0; left: 0; color: blue; text-decoration: underline; cursor: pointer;");
+    body.appendChild(reset);
     let nav = document.createElement("nav");
     navSetup("");
     let div = document.createElement("div");
@@ -13,8 +18,21 @@ var Kapitelaufgabe;
     div.appendChild(b);
     b.setAttribute("id", "building");
     let wrapper = document.createElement("div");
-    let jsn = Kapitelaufgabe.com;
-    let allParts = JSON.parse(jsn);
+    let allParts;
+    async function getJSON(_url) {
+        let response = await fetch(_url);
+        console.log("Response JSON", response);
+        return await response.json();
+    }
+    async function temp() {
+        allParts = await getJSON("http://127.0.0.1:5500/2_Scripting/Kapitelaufgabe/data.json");
+        console.log("in der Funktion", allParts);
+        await showPossibilities(allParts.residential);
+        await showPossibilities(allParts.commercial);
+        await showPossibilities(allParts.industrial);
+    }
+    temp();
+    console.log("außerhalb der Funktion", allParts);
     console.log(localStorage);
     function navSetup(element) {
         nav.innerHTML = "";
@@ -71,7 +89,7 @@ var Kapitelaufgabe;
             return output;
         }
     }
-    function showPossibilities(_parts) {
+    async function showPossibilities(_parts) {
         let r = document.createElement("div");
         let label = document.createElement("h2");
         switch (_parts) {
@@ -96,9 +114,6 @@ var Kapitelaufgabe;
             r.appendChild(div);
         }
     }
-    showPossibilities(allParts.residential);
-    showPossibilities(allParts.commercial);
-    showPossibilities(allParts.industrial);
     let locArray;
     if (localStorage.getItem("arr") != null) {
         locArray = JSON.parse(localStorage.getItem("arr"));
@@ -190,7 +205,7 @@ var Kapitelaufgabe;
         }
     }
     function restart() {
-        if (confirm("Willst du wirklich deine Stadt abreissen?\n ") == true) {
+        if (confirm("Willst du wirklich deine Stadt abreißen?\n ") == true) {
             localStorage.clear();
             window.location.reload();
         }

@@ -8,8 +8,8 @@ var Kapitelaufgabe;
         { name: "Hotel", source: "./SVG/Hotel.svg", color: "limegreen" }
     ];
     Kapitelaufgabe.C = [
-        { name: "Einkaufscenter", source: "./SVG/KleinesHaus.svg", color: "deepskyblue" },
-        { name: "Krankenhaus", source: "./SVG/Wohngebaeude.svg", color: "deepskyblue" },
+        { name: "Einkaufscenter", source: "./SVG/Einkaufscenter.svg", color: "deepskyblue" },
+        { name: "Krankenhaus", source: "./SVG/Krankenhaus.svg", color: "deepskyblue" },
         { name: "Park", source: "./SVG/Parkplatz.svg", color: "deepskyblue" },
         { name: "Schule", source: "./SVG/Hotel.svg", color: "deepskyblue" }
     ];
@@ -52,12 +52,12 @@ var Kapitelaufgabe;
       "commercial":[
          {
             "name":"Einkaufscenter",
-            "source":"./SVG/KleinesHaus.svg",
+            "source":"./SVG/Einkaufscenter.svg",
             "color":"deepskyblue"
          },
          {
             "name":"Krankenhaus",
-            "source":"./SVG/Wohngebaeude.svg",
+            "source":"./SVG/Krankenhaus.svg",
             "color":"deepskyblue"
          },
          {
