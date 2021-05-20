@@ -25,7 +25,7 @@ var Kapitelaufgabe;
         return await response.json();
     }
     async function build() {
-        allParts = await getJSON("https://github.com/qlulezz/GIS-SoSe-2021/blob/main/2_Scripting/Kapitelaufgabe/data.json");
+        allParts = await getJSON("https://qlulezz.github.io/GIS-SoSe-2021/2_Scripting/Kapitelaufgabe/data.json");
         console.log("in der Funktion", allParts);
         showPossibilities(allParts.residential);
         showPossibilities(allParts.commercial);
