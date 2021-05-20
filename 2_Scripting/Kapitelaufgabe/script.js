@@ -24,16 +24,15 @@ var Kapitelaufgabe;
         console.log("Response JSON", response);
         return await response.json();
     }
-    async function temp() {
+    async function build() {
         allParts = await getJSON("http://127.0.0.1:5500/2_Scripting/Kapitelaufgabe/data.json");
         console.log("in der Funktion", allParts);
-        await showPossibilities(allParts.residential);
-        await showPossibilities(allParts.commercial);
-        await showPossibilities(allParts.industrial);
+        showPossibilities(allParts.residential);
+        showPossibilities(allParts.commercial);
+        showPossibilities(allParts.industrial);
     }
-    temp();
-    console.log("außerhalb der Funktion", allParts);
-    console.log(localStorage);
+    build();
+    console.log("Aktueller LocalStorage", localStorage);
     function navSetup(element) {
         nav.innerHTML = "";
         body.appendChild(nav);
@@ -89,7 +88,7 @@ var Kapitelaufgabe;
             return output;
         }
     }
-    async function showPossibilities(_parts) {
+    function showPossibilities(_parts) {
         let r = document.createElement("div");
         let label = document.createElement("h2");
         switch (_parts) {

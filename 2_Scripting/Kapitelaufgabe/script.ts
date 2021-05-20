@@ -63,24 +63,21 @@ namespace Kapitelaufgabe {
     let wrapper: HTMLDivElement = document.createElement("div");
 
     // Setup JSON
-    // let allParts: Combined = JSON.parse(com);
     let allParts: Combined;
     async function getJSON(_url: RequestInfo): Promise<Combined> {
         let response: Response = await fetch(_url);
         console.log("Response JSON", response);
         return await response.json();
     }
-    async function temp(): Promise<void> {
-        allParts = await getJSON("http://127.0.0.1:5500/2_Scripting/Kapitelaufgabe/data.json");
+    async function build(): Promise<void> {
+        allParts = await getJSON("https://github.com/qlulezz/GIS-SoSe-2021/blob/main/2_Scripting/Kapitelaufgabe/data.json");
         console.log("in der Funktion", allParts);
-        await showPossibilities(allParts.residential);
-        await showPossibilities(allParts.commercial);
-        await showPossibilities(allParts.industrial);
+        showPossibilities(allParts.residential);
+        showPossibilities(allParts.commercial);
+        showPossibilities(allParts.industrial);
     }
-    temp();
-    console.log("außerhalb der Funktion", allParts);
-    //console.log(getJSON("http://127.0.0.1:5500/2_Scripting/Kapitelaufgabe/data.json"));
-    console.log(localStorage);
+    build();
+    console.log("Aktueller LocalStorage", localStorage);
 
     // Setup der Navigationsleiste / aktuelle Seitenanzeige
     function navSetup(element: string): void {
@@ -150,7 +147,7 @@ namespace Kapitelaufgabe {
         }
     }
 
-    async function showPossibilities(_parts: Part[]): Promise<void> {
+    function showPossibilities(_parts: Part[]): void {
         // Create Sub-Div
         let r: HTMLDivElement = document.createElement("div");
 
@@ -180,11 +177,6 @@ namespace Kapitelaufgabe {
             r.appendChild(div);
         }
     }
-
-    // Execute HTML Build
-    /*     showPossibilities(allParts.residential);
-        showPossibilities(allParts.commercial);
-        showPossibilities(allParts.industrial); */
 
     let locArray: string[];
     if (localStorage.getItem("arr") != null) {
