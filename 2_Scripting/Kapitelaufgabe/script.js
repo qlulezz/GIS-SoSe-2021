@@ -33,6 +33,28 @@ var Kapitelaufgabe;
     }
     build();
     console.log("Aktueller LocalStorage", localStorage);
+    async function sendData(_url) {
+        let locArray = JSON.parse(localStorage.getItem("arr"));
+        let output = "";
+        for (let i = 0; i < locArray.length; i += 2) {
+            output += locArray[i + 1] + "=" + locArray[i] + "&";
+        }
+        console.log("Send Data", output);
+        _url = _url + "?" + output;
+        let response = await fetch(_url);
+        let serverResponse = await response.json();
+        console.log("Server Response", response);
+        let serverMessage = document.createElement("p");
+        serverMessage.setAttribute("style", "position: absolute; margin: 0; top: 0;");
+        if (serverResponse.error == undefined) {
+            serverMessage.innerText = "Nachricht des Servers: " + serverResponse.message;
+        }
+        else {
+            serverMessage.innerText = "Error: " + serverResponse.error;
+        }
+        body.appendChild(serverMessage);
+    }
+    sendData("https://gis-communication.herokuapp.com");
     function navSetup(element) {
         nav.innerHTML = "";
         body.appendChild(nav);

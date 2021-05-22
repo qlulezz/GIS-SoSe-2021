@@ -36,6 +36,11 @@ namespace Kapitelaufgabe {
         color: string;
     }
 
+    interface Server {
+        error: string;
+        message: string;
+    }
+
     // Start HTML Build
     let body: HTMLElement = document.body;
 
@@ -69,6 +74,7 @@ namespace Kapitelaufgabe {
         console.log("Response JSON", response);
         return await response.json();
     }
+    // Build HTML from JSON Data
     async function build(): Promise<void> {
         allParts = await getJSON("https://qlulezz.github.io/GIS-SoSe-2021/2_Scripting/Kapitelaufgabe/data.json");
         console.log("in der Funktion", allParts);
@@ -78,6 +84,31 @@ namespace Kapitelaufgabe {
     }
     build();
     console.log("Aktueller LocalStorage", localStorage);
+
+    // Sende localStorage an den Server
+    async function sendData(_url: RequestInfo): Promise<void> {
+        let locArray: string[] = JSON.parse(localStorage.getItem("arr"));
+        let output: string = "";
+        for (let i: number = 0; i < locArray.length; i += 2) {
+            output += locArray[i + 1] + "=" +  locArray[i] + "&";
+        }
+        console.log("Send Data", output);
+
+        _url = _url + "?" + output;
+        let response: Response = await fetch(_url);
+        let serverResponse: Server = await response.json();
+        console.log("Server Response", response);
+
+        let serverMessage: HTMLParagraphElement = document.createElement("p");
+        serverMessage.setAttribute("style", "position: absolute; margin: 0; top: 0;");
+        if (serverResponse.error == undefined) {
+            serverMessage.innerText = "Nachricht des Servers: " + serverResponse.message;
+        } else {
+            serverMessage.innerText = "Error: " + serverResponse.error;
+        }
+        body.appendChild(serverMessage);
+    }
+    sendData("https://gis-communication.herokuapp.com");
 
     // Setup der Navigationsleiste / aktuelle Seitenanzeige
     function navSetup(element: string): void {
@@ -246,9 +277,6 @@ namespace Kapitelaufgabe {
         city.classList.add("city");
         body.appendChild(city);
 
-        // An dieser Schleife saß ich bestimmt 2 Stunden, wenn ich irgendetwas nicht so umgesetzt habe, wie ich es eigentlich hätte machen sollen, lass es mich wissen.
-        // Ich gehe stark davon aus, dass dies hier nicht die beste Lösung ist.
-        // Ignorier jegliche CSS Probleme, die muss ich noch fixen. Auch die letzten Gebäude muss ich noch einsetzen.
         let temp: string[] = [];
         for (let x: number = 0; x < currentArray.length; x += 2) {
             _part = JSON.parse(currentArray[0 + x]);
