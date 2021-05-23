@@ -45,23 +45,23 @@
    ],
    "industrial": [
       {
-         "name": "Kohlekraftwerk",
-         "source": "./SVG/KleinesHaus.svg",
+         "name": "Kraftwerk",
+         "source": "./SVG/Kraftwerk.svg",
          "color": "orange"
       },
       {
          "name": "Großes Industriegebäude",
-         "source": "./SVG/Wohngebaeude.svg",
+         "source": "./SVG/Industriegebaeude.svg",
          "color": "orange"
       },
       {
-         "name": "Verbrennungsanlage",
-         "source": "./SVG/Parkplatz.svg",
+         "name": "Windanlage",
+         "source": "./SVG/Windanlage.svg",
          "color": "orange"
       },
       {
-         "name": "Krematorium",
-         "source": "./SVG/Hotel.svg",
+         "name": "Friedhof",
+         "source": "./SVG/Friedhof.svg",
          "color": "orange"
       }
    ]
