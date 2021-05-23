@@ -3,44 +3,44 @@
       {
          "name": "Kleines Haus",
          "source": "./SVG/KleinesHaus.svg",
-         "color": "limegreen"
+         "color": "deepskyblue"
       },
       {
          "name": "Großes Wohngebäude",
          "source": "./SVG/Wohngebaeude.svg",
-         "color": "limegreen"
+         "color": "cyan"
       },
       {
          "name": "Parkplatz",
          "source": "./SVG/Parkplatz.svg",
-         "color": "limegreen"
+         "color": "gray"
       },
       {
          "name": "Hotel",
          "source": "./SVG/Hotel.svg",
-         "color": "limegreen"
+         "color": "yellow"
       }
    ],
    "commercial": [
       {
          "name": "Einkaufscenter",
          "source": "./SVG/Einkaufscenter.svg",
-         "color": "deepskyblue"
+         "color": "limegreen"
       },
       {
          "name": "Krankenhaus",
          "source": "./SVG/Krankenhaus.svg",
-         "color": "deepskyblue"
+         "color": "red"
       },
       {
          "name": "Park",
          "source": "./SVG/Park.svg",
-         "color": "deepskyblue"
+         "color": "darkolivegreen"
       },
       {
          "name": "Schule",
          "source": "./SVG/Schule.svg",
-         "color": "deepskyblue"
+         "color": "coral"
       }
    ],
    "industrial": [
@@ -52,17 +52,17 @@
       {
          "name": "Großes Industriegebäude",
          "source": "./SVG/Industriegebaeude.svg",
-         "color": "orange"
+         "color": "tan"
       },
       {
          "name": "Windanlage",
          "source": "./SVG/Windanlage.svg",
-         "color": "orange"
+         "color": "white"
       },
       {
          "name": "Friedhof",
          "source": "./SVG/Friedhof.svg",
-         "color": "orange"
+         "color": "darkslategray"
       }
    ]
 }
