@@ -148,7 +148,7 @@ button:hover::before {
 }
 
 .position div > div:hover::after {
-    content: "FREIES FELD";
+    content: "FELD AUSWÄHLEN";
     background-color: rgb(200,200,200);
     transform: translateX(-50%);
     margin: 0;
