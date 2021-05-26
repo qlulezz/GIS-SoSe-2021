@@ -1,0 +1,24 @@
+{
+  "name": "gis-sose-2021",
+  "version": "1.0.0",
+  "description": "**Ich würde hier eine Menge Informationen hinschreiben, aber das Repository ist Public, daher nur die wichtigsten Infos:**",
+  "main": "index.js",
+  "dependencies": {
+    "@types/node": "^15.6.1",
+    "mongodb": "^3.6.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node  3_Server-und-Daten/Aufgabe_3.1/server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qlulezz/GIS-SoSe-2021.git"
+  },
+  "author": "qlulezz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qlulezz/GIS-SoSe-2021/issues"
+  },
+  "homepage": "https://github.com/qlulezz/GIS-SoSe-2021#readme"
+}

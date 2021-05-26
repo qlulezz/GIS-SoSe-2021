@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/avatars/263272950700965888/a_ed8b02c54985dc1c208fbc7915ca2cac.png">
+    <title>Aufgabe 3.1</title>
+    <style>body { font-family: sans-serif; font-size: 1.2rem; text-align: center;}</style>
+    <script src="./submit.js" defer></script>
+</head>
+<body>
+    <header>
+        <a href="../../../0_Main/start.html">Zurück zur Übersichtsseite</a>
+        <h1>Aufgabe 3.1</h1>
+    </header>
+    <main>
+        <form>
+            <input type="text" name="fname" placeholder="Vorname"><br>
+            <input type="text" name="lname" placeholder="Nachname"><br>
+            <input type="text" name="email" placeholder="E-Mail"><br>
+            <textarea name="msg" cols="50" rows="10" placeholder="Deine Nachricht"></textarea>
+            <p>
+                <h4>Wie würdest du die vorherigen Abgaben bewerten?</h4>
+                <label for="range">Absolute Rotze</label>
+                <input type="range" name="bewertung" id="range" min="0" max="100" step="1">
+                <label for="range">Phantastisch</label>
+            </p>
+            <p>Mit Absenden der Nachricht bestätige ich den <a href="../../../1_HTML-und-CSS/Aufgabe_1.3/Datenschutzerklaerung.html" target="_blank">Datenschutz</a>.</p>
+            <button type="button" id="send">Antworten senden</button>
+        </form>
+    </main>
+</body>
+</html>
