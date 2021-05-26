@@ -42,6 +42,20 @@ h2 {
     text-transform: uppercase;
 }
 
+p {
+    position: absolute; 
+    margin: 0; 
+    top: 0;
+}
+
+#message {
+    color: limegreen;
+}
+
+#error {
+    color: red;
+}
+
 nav {
     display: flex;
     justify-content: space-evenly;

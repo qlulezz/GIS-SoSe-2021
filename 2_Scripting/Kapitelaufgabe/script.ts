@@ -76,7 +76,7 @@ namespace Kapitelaufgabe {
     }
     // Build HTML from JSON Data
     async function build(): Promise<void> {
-        allParts = await getJSON("https://qlulezz.github.io/GIS-SoSe-2021/2_Scripting/Kapitelaufgabe/data.json");
+        allParts = await getJSON("./data.json");
         console.log("in der Funktion", allParts);
         showPossibilities(allParts.residential);
         showPossibilities(allParts.commercial);
@@ -100,15 +100,15 @@ namespace Kapitelaufgabe {
         console.log("Server Response", response);
 
         let serverMessage: HTMLParagraphElement = document.createElement("p");
-        serverMessage.setAttribute("style", "position: absolute; margin: 0; top: 0;");
         if (serverResponse.error == undefined) {
+            serverMessage.setAttribute("id", "message");
             serverMessage.innerText = "Nachricht des Servers: " + serverResponse.message;
         } else {
+            serverMessage.setAttribute("id", "error");
             serverMessage.innerText = "Error: " + serverResponse.error;
         }
         body.appendChild(serverMessage);
     }
-    sendData("https://gis-communication.herokuapp.com");
 
     // Setup der Navigationsleiste / aktuelle Seitenanzeige
     function navSetup(element: string): void {
@@ -306,6 +306,7 @@ namespace Kapitelaufgabe {
                 }
             }
         }
+        sendData("https://gis-communication.herokuapp.com");
     }
 
     function restart(): void {

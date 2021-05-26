@@ -25,7 +25,7 @@ var Kapitelaufgabe;
         return await response.json();
     }
     async function build() {
-        allParts = await getJSON("https://qlulezz.github.io/GIS-SoSe-2021/2_Scripting/Kapitelaufgabe/data.json");
+        allParts = await getJSON("./data.json");
         console.log("in der Funktion", allParts);
         showPossibilities(allParts.residential);
         showPossibilities(allParts.commercial);
@@ -45,16 +45,16 @@ var Kapitelaufgabe;
         let serverResponse = await response.json();
         console.log("Server Response", response);
         let serverMessage = document.createElement("p");
-        serverMessage.setAttribute("style", "position: absolute; margin: 0; top: 0;");
         if (serverResponse.error == undefined) {
+            serverMessage.setAttribute("id", "message");
             serverMessage.innerText = "Nachricht des Servers: " + serverResponse.message;
         }
         else {
+            serverMessage.setAttribute("id", "error");
             serverMessage.innerText = "Error: " + serverResponse.error;
         }
         body.appendChild(serverMessage);
     }
-    sendData("https://gis-communication.herokuapp.com");
     function navSetup(element) {
         nav.innerHTML = "";
         body.appendChild(nav);
@@ -224,6 +224,7 @@ var Kapitelaufgabe;
                 }
             }
         }
+        sendData("https://gis-communication.herokuapp.com");
     }
     function restart() {
         if (confirm("Willst du wirklich deine Stadt abreißen?\n ") == true) {
