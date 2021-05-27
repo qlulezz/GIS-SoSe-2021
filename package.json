@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node  3_Server-und-Daten/Aufgabe_3.1/server/server.js"
+    "start": "node 3_Server-und-Daten/Aufgabe_3.1/server/server.js"
   },
   "repository": {
     "type": "git",
