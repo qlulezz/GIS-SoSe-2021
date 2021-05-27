@@ -1,10 +1,10 @@
 namespace P3_1 {
-    // Erstelle FormData und finden den Button im HTML
+    // Erstelle FormData und finde den Button im HTML
     let formData: FormData;
     let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send");
     submit.addEventListener("click", clickSubmit);
 
-    // Bei Button-Klick, Führe kommunikation mit Server aus
+    // Bei Button-Klick, führe Kommunikation mit Server aus
     function clickSubmit(_event: Event): void {
         communicate("https://qlu.herokuapp.com/");
     }
@@ -35,7 +35,7 @@ namespace P3_1 {
 
         let output: string = "\n";
         for (let entry of query) {
-            output += "Name: " + entry[0] + "\nValue: " + entry[1] + "\n\n"; 
+            output += "Name: " + entry[0] + "\nValue: " + entry[1] + "\n\n";
             console.log(entry);
         }
         console.log(output);
