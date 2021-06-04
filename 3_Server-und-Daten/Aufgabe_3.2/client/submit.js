@@ -8,7 +8,7 @@ var P3_2;
     async function handleClickHTML() { handleRequest(true); }
     async function handleClickJSON() { handleRequest(false); }
     function setURL() {
-        url = "http://localhost:8100";
+        url = "https://qlu.herokuapp.com";
     }
     async function handleRequest(isHTML) {
         setURL();

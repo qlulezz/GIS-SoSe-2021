@@ -7,8 +7,8 @@ namespace P3_2 {
     async function handleClickJSON(): Promise<void> { handleRequest(false); }
 
     function setURL(): void {
-        // url = "https://qlu.herokuapp.com";
-        url = "http://localhost:8100";
+        url = "https://qlu.herokuapp.com";
+        //url = "http://localhost:8100";
     }
 
     async function handleRequest(isHTML: boolean): Promise<void> {
