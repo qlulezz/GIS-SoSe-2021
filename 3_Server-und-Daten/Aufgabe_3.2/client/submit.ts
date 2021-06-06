@@ -1,6 +1,15 @@
 namespace P3_2 {
     let formData: FormData;
     let url: string;
+
+    interface Data {
+        fname: string;
+        lname: string;
+        email: string;
+        msg: string;
+        rating: number;
+    }
+    
     document.getElementById("sendhtml").addEventListener("click", handleClickHTML);
     document.getElementById("sendjson").addEventListener("click", handleClickJSON);
     async function handleClickHTML(): Promise<void> { handleRequest(true); }
@@ -25,7 +34,7 @@ namespace P3_2 {
         } else {
             url += "/json" + "?" + query.toString();
             let response: Response = await fetch(url);
-            let responseJSON: string = await response.json();
+            let responseJSON: Data = await response.json();
             console.log("Response JSON", responseJSON);
         }
         setURL();
