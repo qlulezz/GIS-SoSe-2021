@@ -1,4 +1,10 @@
+:root {
+    --prim: #26ED90;
+}
+
 body {
+    margin: 0;
+    padding: 0;
     font-family: "Bahnschrift";
     font-size: 5;
     color: white;
@@ -6,13 +12,13 @@ body {
     text-align: center;
 }
 
-body p {
-    line-height: 5px;
-}
-
 nav a {
     display: block;
     color: inherit;
+}
+
+body p {
+    margin: 0;
 }
 
 ul {
@@ -115,4 +121,22 @@ header a:hover {
     100% {
         transform: translate(0, 0);
     }
+}
+
+.rm {
+    padding: 0 0 4rem 0;
+}
+
+.rmc {
+    text-align: left;
+    padding: .2rem 2rem;
+}
+
+.rmb {
+    color: var(--prim);
+}
+
+.rmb:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
