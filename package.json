@@ -4,13 +4,14 @@
   "description": "**Ich würde hier eine Menge Informationen hinschreiben, aber das Repository ist Public, daher nur die wichtigsten Infos:**",
   "main": "index.js",
   "dependencies": {
-    "mongodb": "^3.6.8"
+    "@types/mongodb": "^3.6.18",
+    "mongodb": "^3.6.9"
   },
   "devDependencies": {
     "@types/node": "^15.9.0"
   },
   "scripts": {
-    "start": "node 3_Server-und-Daten/Aufgabe_3.2/server/server.js"
+    "start": "node 3_Server-und-Daten/Aufgabe_3.4/server/server.js"
   },
   "repository": {
     "type": "git",
