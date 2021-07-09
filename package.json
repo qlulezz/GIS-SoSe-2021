@@ -5,13 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "@types/mongodb": "^3.6.18",
-    "mongodb": "^3.6.9"
-  },
-  "devDependencies": {
     "@types/node": "^15.9.0"
   },
+  "devDependencies": {
+    "mongodb": "^3.6.9"
+  },
   "scripts": {
-    "start": "node 3_Server-und-Daten/Aufgabe_3.4/server/server.js"
+    "start": "node 4_Endabgabe/script/server/server.js"
   },
   "repository": {
     "type": "git",
