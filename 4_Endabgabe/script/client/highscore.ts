@@ -1,6 +1,7 @@
 namespace end_highscores {
 
     let url: string;
+    let hueRotate: number = Math.floor(Math.random() * 360);
     async function getData(): Promise<void> {
         setURL();
         url += "/receivescores";
@@ -39,6 +40,8 @@ namespace end_highscores {
                 tr.style.color = "#ffe768";
             if (i == 2) 
                 tr.style.color = "#fff5c0";
+            if (i < 3)
+                tr.style.filter = "hue-rotate(" + hueRotate + "deg)";
         }
         setURL();
     }
