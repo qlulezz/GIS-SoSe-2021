@@ -4,8 +4,8 @@
   "description": "**Ich würde hier eine Menge Informationen hinschreiben, aber das Repository ist Public, daher nur die wichtigsten Infos:**",
   "main": "index.js",
   "dependencies": {
+    "@types/mongodb": "^3.6.20",
     "@types/node": "^15.9.0",
-    "@types/mongodb": "^3.6.18",
     "mongodb": "^3.6.9"
   },
   "scripts": {
