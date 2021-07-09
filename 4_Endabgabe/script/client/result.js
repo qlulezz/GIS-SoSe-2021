@@ -53,7 +53,7 @@ var end_result;
         }
     }
     function setURL() {
-        url = "http://localhost:8100";
+        url = "https://qlu.herokuapp.com";
     }
     async function sendData(_isFirst) {
         setURL();

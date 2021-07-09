@@ -45,8 +45,8 @@ namespace end_highscores {
     getData();
 
     function setURL(): void {
-        url = "http://localhost:8100";
-        //url = "https://qlu.herokuapp.com";
+        //url = "http://localhost:8100";
+        url = "https://qlu.herokuapp.com";
     }
 
     interface ResultData {

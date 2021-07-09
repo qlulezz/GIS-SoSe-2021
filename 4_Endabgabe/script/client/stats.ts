@@ -19,8 +19,8 @@ namespace end_stats {
 
     let url: string;
     function setURL(): void {
-        url = "http://localhost:8100";
-        //url = "https://qlu.herokuapp.com";
+        //url = "http://localhost:8100";
+        url = "https://qlu.herokuapp.com";
     }
 
     let scores: number = 0;

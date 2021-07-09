@@ -49,8 +49,8 @@ namespace end_result {
     }
 
     function setURL(): void {
-        url = "http://localhost:8100";
-        //url = "https://qlu.herokuapp.com";
+        //url = "http://localhost:8100";
+        url = "https://qlu.herokuapp.com";
     }
 
     async function sendData(_isFirst: boolean): Promise<void> {

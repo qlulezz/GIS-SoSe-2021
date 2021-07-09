@@ -42,7 +42,7 @@ var end_highscores;
     }
     getData();
     function setURL() {
-        url = "http://localhost:8100";
+        url = "https://qlu.herokuapp.com";
     }
     function formatDate(date) {
         let f = date.split("_");
