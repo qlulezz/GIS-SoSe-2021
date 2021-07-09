@@ -1,0 +1,53 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://static.thenounproject.com/png/817-200.png">
+    <title>Online Memory - Admin</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./script/client/stats.js" defer></script>
+    <script src="./script/client/admin.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="./index.html">Übersicht</a></li>
+                <li><a href="./game.html">Spielen</a></li>
+                <li><a href="./highscores.html">Highscores</a></li>
+                <li class="current"><a href="./admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Admin</h1>
+        <h2>Bilderverwaltung</h2>
+        <div class="admin">
+            <div class="addimg">
+                <p>Neues Bild einfügen</p>
+                <p>(Unterstützt sind .jpg .png .gif .svg .bmp .ico)</p>
+                <p class="small"><a href="https://www.twitch.tv/directory" target="_blank">Twitch Thumbnails</a> empfohlen.</p>
+                <form>
+                    <input type="text" name="link" id="link" placeholder="URL">
+                    <input type="text" name="name" id="linkname" placeholder="Name">
+                </form>
+                <button id="send">Absenden</button>
+                <button id="refresh">Daten aktualisieren</button>
+                <p id="output"></p>
+            </div>
+            <div class="box"></div>
+        </div>
+    </main>
+    <footer>
+        <p id="stats"><b><u>Statistiken laden</u></b></p>
+        <p>Erstellt im Zeitraum 16.06.2021 bis 11.07.2021</p>
+        <p>Insgesamt investierte Zeit: etwa 18 Stunden - Mündliche Prüfung am 19.07.2021</p>
+        <a id="back" href="../0_Main/start.html">Zurück zur Übersichtsseite</a>
+        <a id="mode" href="./secret.html">Zu Light Mode wechseln</a>
+    </footer>
+</body>
+
+</html>
