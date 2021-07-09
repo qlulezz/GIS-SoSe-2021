@@ -45,6 +45,11 @@ var A2;
     }
     showAllInfo();
     class Studierend {
+        name;
+        matrikelnummer;
+        studiengang;
+        semester;
+        geburtsdatum;
         constructor(_name, _matrikelnummer, _studiengang, _semester, _geburtsdatum) {
             this.name = _name;
             this.matrikelnummer = _matrikelnummer;
@@ -140,9 +145,16 @@ var A2;
     testContext.stroke();
     testContext.closePath();
     class Rechteck {
+        width;
+        height;
+        locX;
+        locY;
+        strokeWidth;
+        colorFill;
+        colorStroke;
+        r1 = (Math.random() + (Math.random() - 1)) / 10;
+        r2 = (Math.random() + (Math.random() - 1)) / 10;
         constructor(_width, _height, _locX, _locY, _strokeWidth, _colorFill, _colorStroke) {
-            this.r1 = (Math.random() + (Math.random() - 1)) / 10;
-            this.r2 = (Math.random() + (Math.random() - 1)) / 10;
             this.width = _width;
             this.height = _height;
             this.locX = _locX;
