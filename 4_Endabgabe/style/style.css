@@ -402,11 +402,11 @@ button:hover {
 }
 
 @media (max-width: 1024px) {
-    .container {
+    .container, .meme-container {
         position: relative;
         top: 50%;
         width: 100%;
-        transform: translateY(-50%);
+        transform: translateY(50%);
     }
 
     .game-main {
@@ -438,6 +438,10 @@ button:hover {
 
     #stats {
         font-size: 1rem;
+    }
+    
+    .meme-container {
+        transform: translateY(0%);
     }
 }
 
@@ -485,5 +489,15 @@ button:hover {
 
     #stats {
         padding-bottom: .4rem;
+    }
+
+    .meme-container {
+        margin-top: 1rem;
+        transform: translateY(0%);
+    }
+
+    #meme {
+        max-width: 90%;
+        margin: 1rem 0 10rem;
     }
 }
